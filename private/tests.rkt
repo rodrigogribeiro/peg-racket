@@ -2,10 +2,12 @@
 
 (require rackunit
          rackunit/text-ui
-         "peg.rkt"
+         "core.rkt"
          "utils.rkt")
 
 ;; some simple tests
+
+(provide file-tests)
 
 (require rackunit/text-ui)
 
@@ -106,8 +108,3 @@
         (run-peg (single (not (chr #\a))) "a")
         (Fail (list #\a))))
     ))
-
-(run-tests file-tests)
-
-(define-peg ("A" <-- (eps . / . (var "B")))
-            ("B" <-- (chr #\b)))

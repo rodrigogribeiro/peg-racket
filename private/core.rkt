@@ -102,7 +102,7 @@
 
 (define-syntax define-peg
   (syntax-rules (<--)
-    [(define-peg) (peg '() '())]
+    [(define-peg) (empty-peg)]
     [(define-peg [nt <-- expr]) (peg (list (cons nt expr)) (Var nt))]
     [(define-peg [nt <-- expr] rest) (set-start (add-var (define-peg rest) nt expr) (Var nt))]))
 
